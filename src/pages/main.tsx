@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Spinner } from "react-bootstrap"
+import { API_URL } from "../services/authService"
 
 interface Interaction {
   id: string
@@ -58,7 +59,7 @@ export const SessionPage = () => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/user/me", {
+      const response = await axios.get(`${API_URL}/user/me`, {
         headers: {
           Authorization: `bearer ${token}`,
         },
@@ -71,7 +72,7 @@ export const SessionPage = () => {
 
   const fetchSessions = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/model/get/session", {
+      const response = await axios.get(`${API_URL}/model/get/session`, {
         headers: {
           Authorization: `bearer ${token}`,
         },
@@ -100,7 +101,7 @@ export const SessionPage = () => {
     }
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/model/generate/response", formData, {
+      const response = await axios.post(`${API_URL}/model/generate/response`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `bearer ${token}`,
