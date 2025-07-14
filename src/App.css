@@ -1,0 +1,78 @@
+:root {
+  --color-bg: #f9fbff; /* Light background */
+  --color-text: #1a2533; /* Dark text for readability */
+  --color-primary: #007bff; /* Deep sky blue (strong primary) */
+  --color-primary-light: #66b2ff; /* Soft sky blue */
+  --color-border: #ccd6e6; /* Light border color */
+  --color-muted: #7c8ea4; /* Subtle muted text */
+  --color-card: #ffffff; /* Pure white card background */
+  --color-bg-card: rgba(255, 255, 255, 0.6); /* Translucent card */
+  --color-shadow: rgba(0, 0, 0, 0.08); /* Light shadow */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+.container {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  margin: 4rem auto;
+  padding: 3rem;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 0 20px var(--color-shadow);
+}
+
+.cube-wrapper {
+  perspective: 1000px;
+  height: 300px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  background-color: var(--color-primary);
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(30deg);
+  margin: 0 auto;
+  box-shadow: 0 30px 60px rgba(51, 153, 255, 0.3);
+  border-radius: 12px;
+  transition: transform 1s ease;
+}
+
+.cube.enlarged {
+  transform: scale(1.5) translateY(-80px) rotateX(0deg) rotateY(0deg);
+  box-shadow: 0 40px 100px rgba(51, 153, 255, 0.6);
+}
+
+.get-started {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.get-started.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
